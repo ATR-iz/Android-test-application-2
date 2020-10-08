@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.atriztech.future_sortingscreen.SortingViewModel" />
+
+        <variable
+            name="fragment"
+            type="com.atriztech.future_sortingscreen.SortingFragment" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select language:"
+                android:textSize="24sp" />
+
+            <Spinner
+                android:id="@+id/sp_language"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:spinnerMode="dropdown"
+                android:onItemSelected="@{(parent,view,pos,id)->fragment.onSelectItemLanguage(parent,view,pos,id)}"
+                android:entries="@{viewModel.listLanguage}"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text = "Select region:"
+                android:textSize="24sp" />
+
+            <Spinner
+                android:id="@+id/sp_location"
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:spinnerMode="dropdown"
+                android:onItemSelected="@{(parent,view,pos,id)->fragment.onSelectItemLocation(parent,view,pos,id)}"
+                android:entries="@{viewModel.listLocation}"
+                />
+
+            <Button
+                android:id="@+id/find_jobs"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{(v) -> fragment.findJobs(v)}"
+                android:text="Find jobs" />
+
+        </LinearLayout>
+    </FrameLayout>
+</layout>

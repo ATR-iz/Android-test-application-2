@@ -1,0 +1,8 @@
+include ':common'
+include ':future-selectedjobscreen'
+include ':future-listjobsscreen'
+include ':future-sortingscreen'
+include ':future-jobs'
+include ':core-network'
+include ':app'
+rootProject.name = "Android Test Application 2"

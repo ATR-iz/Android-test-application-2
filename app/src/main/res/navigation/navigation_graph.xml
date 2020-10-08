@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/sortingJobsFragment">
+
+    <fragment
+        android:id="@+id/sortingJobsFragment"
+        android:name="com.atriztech.future_sortingscreen.SortingFragment"
+        android:label="sorting_jobs_fragment"
+        tools:layout="@layout/sorting_fragment" >
+        <action
+            android:id="@+id/action_sortingJobsFragment_to_listJobsFragment"
+            app:destination="@id/listJobsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listJobsFragment"
+        android:name="com.atriztech.future_listjobsscreen.ListJobsFragment"
+        android:label="list_jobs_fragment"
+        tools:layout="@layout/list_jobs_fragment" >
+        <action
+            android:id="@+id/action_listJobsFragment_to_selectedJobFragment"
+            app:destination="@id/selectedJobFragment" />
+        <argument
+            android:name="language"
+            app:argType="string"
+            android:defaultValue="" />
+        <argument
+            android:name="location"
+            app:argType="string"
+            android:defaultValue="" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectedJobFragment"
+        android:name="com.atriztech.future_selectedjobscreen.SelectedJobFragment"
+        android:label="selected_job_fragment"
+        tools:layout="@layout/selected_job_fragment" />
+</navigation>
